@@ -53,7 +53,7 @@ password2.addEventListener("click",(e)=>{
      if(password.value==password2.value){
         if(validarEmail(email.value)&&validarPassword(password.value)){
             $.ajax({
-                url:"http://localhost:8080/api/user/all",
+                url:"http://144.22.244.240:8080/api/user/all",
                 type:"GET",
                 datatype:"JSON",
                 success:function(usuarios){
@@ -124,7 +124,7 @@ password2.addEventListener("click",(e)=>{
      }
      let dataToSend=JSON.stringify(datos);
      $.ajax({
-        url:"http://localhost:8080/api/user/new",
+        url:"http://144.22.244.240:8080/api/user/new",
         type:"POST",
         data:dataToSend,
         contentType:"application/JSON",
@@ -137,7 +137,7 @@ password2.addEventListener("click",(e)=>{
 
  function traerUsuarios() {
     $.ajax({
-        url:"http://localhost:8080/api/user/all",
+        url:"http://144.22.244.240:8080/api/user/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
