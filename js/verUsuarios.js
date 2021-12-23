@@ -19,7 +19,7 @@ function crearTabla(items){
 
 function mostrarUsuarios() {
     $.ajax({
-        url:"http://localhost:8080/api/user/all",
+        url:"http://144.22.244.240:8080/api/user/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){

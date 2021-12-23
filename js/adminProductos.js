@@ -21,7 +21,7 @@ btn.addEventListener("click", (e) => {
 
 
     $.ajax({
-        url: "http://localhost:8080/api/cleaningproduct/all",
+        url: "http://144.22.244.240:8080/api/cleaningproduct/all",
         type: "GET",
         datatype: "JSON",
         success: function (productos) {
@@ -72,7 +72,7 @@ function GuardarProducto() {
     }
     let dataToSend = JSON.stringify(datos);
     $.ajax({
-        url: "http://localhost:8080/api/cleaningproduct/new",
+        url: "http://144.22.244.240:8080/api/cleaningproduct/new",
         type: "POST",
         data: dataToSend,
         contentType: "application/JSON",
@@ -110,7 +110,7 @@ ProductosAMostrar.style.display = "none"
 function mostrarProductos() {
 
     $.ajax({
-        url: "http://localhost:8080/api/cleaningproduct/all",
+        url: "http://144.22.244.240:8080/api/cleaningproduct/all",
         type: "GET",
         datatype: "JSON",
         success: function (respuesta) {
@@ -176,7 +176,7 @@ const activarModal = (referencia) => {
 function actualizarProducto(usuario) {
     let dataToSend = JSON.stringify(usuario);
     $.ajax({
-        url: "http://localhost:8080/api/cleaningproduct/update",
+        url: "http://144.22.244.240:8080/api/cleaningproduct/update",
         type: "PUT",
         data: dataToSend,
         contentType: "application/JSON",
@@ -204,7 +204,7 @@ const deleteProducto = (referencia) => {
         let dataToSend = JSON.stringify(myData);
         console.log(dataToSend)
         $.ajax({
-            url: "http://localhost:8080/api/cleaningproduct/" + referencia,
+            url: "http://144.22.244.240:8080/api/cleaningproduct/" + referencia,
             type: "DELETE",
             data: dataToSend,
             contentType: "application/JSON",

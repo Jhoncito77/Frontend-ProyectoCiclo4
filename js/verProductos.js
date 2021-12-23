@@ -19,7 +19,7 @@ function crearTablaProductos(items){
 
 function mostrarProductos() {
     $.ajax({
-        url:"http://localhost:8080/api/cleaningproduct/all",
+        url:"http://144.22.244.240:8080/api/cleaningproduct/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){

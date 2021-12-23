@@ -63,7 +63,7 @@ btn.addEventListener("click", (e) => {
     if (password.value == password2.value) {
         if (validarEmail(email.value) && validarPassword(password.value)) {
             $.ajax({
-                url: "http://localhost:8080/api/user/all",
+                url: "http://144.22.244.240:8080/api/user/all",
                 type: "GET",
                 datatype: "JSON",
                 success: function (usuarios) {
@@ -142,7 +142,7 @@ function GuardarUsuario() {
     }
     let dataToSend = JSON.stringify(datos);
     $.ajax({
-        url: "http://localhost:8080/api/user/new",
+        url: "http://144.22.244.240:8080/api/user/new",
         type: "POST",
         data: dataToSend,
         contentType: "application/JSON",
@@ -180,7 +180,7 @@ usuariosAMostrar.style.display = "none"
 function mostrarUsuarios() {
 
     $.ajax({
-        url: "http://localhost:8080/api/user/all",
+        url: "http://144.22.244.240:8080/api/user/all",
         type: "GET",
         datatype: "JSON",
         success: function (respuesta) {
@@ -279,7 +279,7 @@ const activarModal = (idUsuario) => {
 function actualizarUsuario(usuario) {
     let dataToSend = JSON.stringify(usuario);
     $.ajax({
-        url: "http://localhost:8080/api/user/update",
+        url: "http://144.22.244.240:8080/api/user/update",
         type: "PUT",
         data: dataToSend,
         contentType: "application/JSON",
@@ -303,7 +303,7 @@ const deleteUsuario = (idUsuario) => {
         }
         let dataToSend=JSON.stringify(myData);
         $.ajax({
-            url:"http://localhost:8080/api/user/"+idUsuario,
+            url:"http://144.22.244.240:8080/api/user/"+idUsuario,
             type:"DELETE",
             data:dataToSend,
             contentType:"application/JSON",
