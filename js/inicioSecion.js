@@ -1,6 +1,6 @@
 function traerUsuarios() {
     $.ajax({
-        url:"http://144.22.244.240:8080/api/user/all",
+        url:"http://localhost:8080/api/user/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
@@ -50,7 +50,7 @@ btn.addEventListener("click",(e)=>{
     validar()
     if(validarEmail(email.value)&&validarPassword(password.value)){
         $.ajax({
-            url:"http://144.22.244.240:8080/api/user/all",
+            url:"http://localhost:8080/api/user/all",
             type:"GET",
             datatype:"JSON",
             success:function(usuarios){
@@ -64,13 +64,15 @@ btn.addEventListener("click",(e)=>{
                         if(email.value==usuarios[i].email&&password.value==usuarios[i].password){
                             aux = true;
                             nombre = usuarios[i].name;
+                            type = usuarios[i].type;
                             break;
                         }else{
                             aux = false;
                         }
                     }
                     if(aux){
-                        alert("Bienvenido "+nombre)
+                        alert(`Bienvenido ${type} ${nombre}`)
+                        window.location.href="../Menu.html"
                     }else{
                         alert("Usuario no registrado")
                     }

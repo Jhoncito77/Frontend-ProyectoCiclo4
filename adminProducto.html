@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creacion de cuentas</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/stilos.css">
+</head>
+
+<body>
+    <div id="header">
+        <nav>
+            <!-- Aqui estamos iniciando la nueva etiqueta nav -->
+            <ul class="nav">
+
+                <li><a href="Menu.html">Menu</a>
+
+                </li>
+                <li><a href="verUsuario.html">Usuarios</a>
+                    <ul>
+                        <li><a href="adminUsuario.html">Administracion de usuarios</a></li>
+                    </ul>
+                </li>
+                <li><a href="verProducto.html">Productos</a>
+                    <ul>
+                        <li><a href="adminProducto.html">Administracion de productos</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </nav><!-- Aqui estamos cerrando la nueva etiqueta nav -->
+    </div>
+    <img src="img/logo.png" class="mt-5 mx-auto d-block rounded-circle img-fluid">
+    <div class="jumbotron jumbotron-fluid mt-3 recuadro">
+        <h1 class="text-center">ADMINISTRACION DE PRODUCTOS</h1>
+        <div class="form-group" id="divGuardarProducto">
+            <form class="">
+                <div class="row">
+                    <div class="col-sm-1 "><label for="reference"><strong>Referencia: </strong></label></div>
+                    <div class="col-sm-5"><input type="text" class="form-control" id="reference"></div>
+
+                    <div class="col-sm-1 "><label for="brand"><strong>Marca: </strong></label></div>
+                    <div class="col-sm-5"><input type="text" class="form-control" id="brand"></div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-sm-1"><label for="category"><strong>Categoria: </strong></label></div>
+                    <div class="col-sm-5"><input type="text" class="form-control" id="category"></div>
+
+                    <div class="col-sm-1"><label for="description"><strong>Descripción: </strong></label></div>
+                    <div class="col-sm-5"><input type="text" class="form-control" id="description"></div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-sm-1"><label><strong>Disponible: </strong></label></div>
+                    <div class="col-sm-5"><select name="availability" id="availability">
+                            <option value="true">true</option>
+                            <option value="false">false</option>
+                        </select></div>
+
+                    <div class="col-sm-1"><label for="price"><strong>Precio: </strong></label></div>
+                    <div class="col-sm-5"><input type="number" class="form-control" id="price"></div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-sm-1"><label for="quantity"><strong>Cantidad: </strong></label></div>
+                    <div class="col-sm-5"><input type="number" class="form-control" id="quantity"></div>
+
+                    <div class="col-sm-1"><label for="photography"><strong>Url foto: </strong></label></div>
+                    <div class="col-sm-5"><input type="text" class="form-control" id="photography"></div>
+                </div>
+
+                <div class="text-center  mt-3">
+                    <div class="col-sm-12"><button id="guardar" class="btn btn-primary ">Crear Producto</button></div>
+                    <div class="col-sm-12"><button id="ver" class="btn btn-success mt-3">Ver Productos</button></div>
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+
+    <div class="jumbotron jumbotron-fluid mt-4 recuadro" id="mostrarProductos">
+
+    </div>
+
+    <button class="open-modal" data-open="myModalProducto" style="display: none;" id="btnmodalproducto"
+        data-toggle="modal" data-target="#myModalProducto"></button>
+    <div class="modal" id="myModalProducto">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Editar Producto</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body"">
+                    <div class=" jumbotron jumbotron-fluid mt-3 recuadro">
+
+                        <div class="form-group" id="divGuardarProducto">
+                            <form class="">
+                                <div class="row">
+                                    <div class="col-sm-1 "><label for="reference2"><strong>Referencia: </strong></label>
+                                    </div>
+                                    <div class="col-sm-5"><input type="text" class="form-control" id="reference2" disabled>
+                                    </div>
+
+                                    <div class="col-sm-1 "><label for="brand2"><strong>Marca: </strong></label></div>
+                                    <div class="col-sm-5"><input type="text" class="form-control" id="brand2"></div>
+                                </div>
+
+                                <div class="row mt-3">
+                                    <div class="col-sm-1"><label for="category2"><strong>Categoria: </strong></label></div>
+                                    <div class="col-sm-5"><input type="text" class="form-control" id="category2"></div>
+
+                                    <div class="col-sm-1"><label for="description2"><strong>Descripción: </strong></label>
+                                    </div>
+                                    <div class="col-sm-5"><input type="text" class="form-control" id="description2"></div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-sm-1"><label><strong>Disponible: </strong></label></div>
+                                    <div class="col-sm-5"><select name="availability" id="availability2">
+                                            <option value="true">true</option>
+                                            <option value="false">false</option>
+                                        </select></div>
+
+                                    <div class="col-sm-1"><label for="price2"><strong>Precio: </strong></label></div>
+                                    <div class="col-sm-5"><input type="number" class="form-control" id="price2"></div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-sm-1"><label for="quantity2"><strong>Cantidad: </strong></label></div>
+                                    <div class="col-sm-5"><input type="number" class="form-control" id="quantity2"></div>
+
+                                    <div class="col-sm-1"><label for="photography2"><strong>Url foto: </strong></label>
+                                    </div>
+                                    <div class="col-sm-5"><input type="text" class="form-control" id="photography2"></div>
+                                </div>
+
+
+                            </form>
+
+
+                        </div>
+                    </div>
+                </div>        
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" id="btnactualizarproducto"
+                        onclick="actualizarProducto()">Actualizar</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+
+
+    <button class="open-modal" data-open="myModal" style="display: none;" id="btnmodal2" data-toggle="modal"
+        data-target="#confirborrar"></button>
+    <!-- The Modal -->
+    <div class="modal" id="confirborrar">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Eliminar Producto</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="alert alert-warning alert-dismissable">
+
+                        <p><strong>¡Cuidado!</strong> ¿Esta seguro de eliminar este Producto?</p>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" id="btneliminar1">Eliminar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script src="js/adminProductos.js"></script>
+</body>
+
+</html>

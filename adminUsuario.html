@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creacion de cuentas</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/stilos.css">
+</head>
+
+<body>
+    <div id="header">
+        <nav>
+            <!-- Aqui estamos iniciando la nueva etiqueta nav -->
+            <ul class="nav">
+
+                <li><a href="Menu.html">Menu</a>
+
+                </li>
+                <li><a href="verUsuario.html">Usuarios</a>
+                    <ul>
+                        <li><a href="adminUsuario.html">Administracion de usuarios</a></li>
+                    </ul>
+                </li>
+                <li><a href="verProducto.html">Productos</a>
+                    <ul>
+                        <li><a href="adminProducto.html">Administracion de productos</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </nav><!-- Aqui estamos cerrando la nueva etiqueta nav -->
+    </div>
+    <img src="img/logo.png" class="mt-5 mx-auto d-block rounded-circle img-fluid">
+    <div class="jumbotron jumbotron-fluid mt-3 recuadro">
+        <h1 class="text-center">ADMINISTRACION DE USUARIOS</h1>
+        <div class="form-group" id="divGuardar">
+            <form class="">
+                <div class="row">
+                    <div class="col-sm-1 "><label for="id"><strong>Id: </strong></label></div>
+                    <div class="col-sm-5"><input type="number" class="form-control" id="id"></div>
+
+                    <div class="col-sm-1 "><label for="identification"><strong>Documento: </strong></label></div>
+                    <div class="col-sm-5"><input type="text" class="form-control" id="identification"></div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-sm-1"><label for="nombre"><strong>Nombre: </strong></label></div>
+                    <div class="col-sm-5"><input type="text" class="form-control" id="nombre"></div>
+
+                    <div class="col-sm-1"><label for="address"><strong>Dirección: </strong></label></div>
+                    <div class="col-sm-5"><input type="text" class="form-control" id="address"></div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-sm-1"><label for="cellPhone"><strong>Telefóno: </strong></label></div>
+                    <div class="col-sm-5"><input type="text" class="form-control" id="cellPhone"></div>
+
+                    <div class="col-sm-1"><label for="email"><strong>Email: </strong></label></div>
+                    <div class="col-sm-5"><input type="email" class="form-control" id="email">
+                        <p class="err">*Email Invalido</p>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-sm-1"><label for="password"><strong>Password: </strong></label></div>
+                    <div class="col-sm-5"><input type="password" class="form-control" id="password">
+                        <p class="err">*El password debe tener minimo 8 caracteres, al menos una letra
+                            mayuscula, una minuscula, un numero y un caracter especial</p>
+                    </div>
+
+                    <div class="col-sm-1"><label for=""><strong>Confirmacion Password: </strong></label></div>
+                    <div class="col-sm-5"><input type="password" class="form-control" id="confirpassword">
+                        <p class="err">*El password debe tener minimo 8 caracteres, al menos una letra
+                            mayuscula, una minuscula, un numero y un caracter especial</p>
+                        <p class="err">*La confirmación del password no coincide con el registrado</p>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-sm-1"><label for="zone"><strong>Zona: </strong></label></div>
+                    <div class="col-sm-5"><input type="text" class="form-control" id="zone"></div>
+
+                    <div class="col-sm-1"><label for="type"><strong>Cargo: </strong></label></div>
+                    <div class="col-sm-5"><input type="text" class="form-control" id="type"></div>
+                </div>
+                <div class="text-center  mt-3">
+                    <div class="col-sm-12"><button id="entrar" class="btn btn-primary ">Crear cuenta</button></div>
+                    <div class="col-sm-12"><button id="ver" class="btn btn-success mt-3">Ver usuarios</button></div>
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+
+    <div class="jumbotron jumbotron-fluid mt-4 recuadro" id="mostrarUsuarios">
+
+    </div>
+
+    <button class="open-modal" data-open="myModal" style="display: none;" id="btnmodal" data-toggle="modal"
+        data-target="#myModal"></button>
+    <div class="modal" id="myModal">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Editar Usuario</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body"">
+                        <div class=" container container-fluid mt-3 recuadromodal">
+
+                    <div class="form-group" id="diveditar">
+                        <form>
+                            <div class="row">
+                                <div class="col-sm-1 "><label for="id2"><strong>Id: </strong></label></div>
+                                <div class="col-sm-5"><input type="number" class="form-control" id="id2" disabled></div>
+
+                                <div class="col-sm-1 "><label for="identification2"><strong>Documento: </strong></label>
+                                </div>
+                                <div class="col-sm-5"><input type="text" class="form-control" id="identification2">
+                                </div>
+                            </div>
+
+                            <div class="row mt-3">
+                                <div class="col-sm-1"><label for="nombre2"><strong>Nombre: </strong></label></div>
+                                <div class="col-sm-5"><input type="text" class="form-control" id="nombre2"></div>
+
+                                <div class="col-sm-1"><label for="address2"><strong>Dirección: </strong></label></div>
+                                <div class="col-sm-5"><input type="text" class="form-control" id="address2"></div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-sm-1"><label for="cellPhone2"><strong>Telefóno: </strong></label></div>
+                                <div class="col-sm-5"><input type="text" class="form-control" id="cellPhone2"></div>
+
+                                <div class="col-sm-1"><label for="email2"><strong>Email: </strong></label></div>
+                                <div class="col-sm-5"><input type="email" class="form-control" id="email2">
+                                    <p class="err 2">*Email Invalido</p>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-sm-1"><label for="password3"><strong>Password: </strong></label></div>
+                                <div class="col-sm-5"><input type="password" class="form-control" id="password3">
+                                    <p class="err 2">*El password debe tener minimo 8 caracteres, al menos una letra
+                                        mayuscula, una minuscula, un numero y un caracter especial</p>
+                                </div>
+
+                                <div class="col-sm-1"><label for=""><strong>Confirmacion Password: </strong></label>
+                                </div>
+                                <div class="col-sm-5"><input type="password" class="form-control" id="confirpassword2">
+                                    <p class="err 2">*El password debe tener minimo 8 caracteres, al menos una letra
+                                        mayuscula, una minuscula, un numero y un caracter especial</p>
+                                    <p class="err 2">*La confirmación del password no coincide con el registrado</p>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-sm-1"><label for="zone2"><strong>Zona: </strong></label></div>
+                                <div class="col-sm-5"><input type="text" class="form-control" id="zone2"></div>
+
+                                <div class="col-sm-1"><label for="type2"><strong>Cargo: </strong></label></div>
+                                <div class="col-sm-5"><input type="text" class="form-control" id="type2"></div>
+                            </div>
+
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="btnactualizar"
+                    onclick="actualizarUsuario()">Actualizar</button>
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+    <button class="open-modal" data-open="myModal" style="display: none;" id="btnmodal2" data-toggle="modal"
+        data-target="#confirborrar"></button>
+    <!-- The Modal -->
+    <div class="modal" id="confirborrar">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Eliminar usuario</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="alert alert-warning alert-dismissable">
+
+                        <p><strong>¡Cuidado!</strong> ¿Esta seguro de eliminar este usuario?</p>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" id="btneliminar1">Eliminar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="js/adminUsuario.js"></script>
+</body>
+
+</html>
